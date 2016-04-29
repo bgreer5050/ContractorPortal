@@ -3,29 +3,95 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h2 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">One Hour Quote!</h2>
+    <p class="lead">FAST QUOTE SYSTEM - We can quote your job within 1 hour.  Click the blue button.</p>
+    <p><a href="#" class="btn btn-primary btn-lg btnQuote">Fast Quote &raquo;</a></p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Roofing</h2>
         <p>
             ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
             enables a clean separation of concerns and gives you full control over markup
             for enjoyable, agile development.
+            <img alt="Bootstrap Image Preview" width="250px" height="250px" src="http://www.fairtradeworks.biz/wp-content/uploads/2015/11/Roof3.jpg" class="img-circle">
         </p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
+        <h2>Siding</h2>
         <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <img alt="Bootstrap Image Preview" width="250px" height="250px" src="http://www.robertbeneventoroofing.com/Siding_Biege.jpg" class="img-circle">
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
+        <h2>Soffit, Fascia and Gutters</h2>
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <img alt="Bootstrap Image Preview" width="250px" height="250px" src="http://thremodeling.com/wp-content/uploads/2015/08/gutter-1.jpg" class="img-circle">
     </div>
 </div>
+
+
+<div id="divQuoteForm" style="display:none">
+
+    <form id="frmQuote">
+        <label>Name</label>
+        <input type="text" name="Name" style="display:block" />
+
+        <label>Address</label>
+        <input type="text" name="Address" style="display:block" />
+
+
+        <label>ZipCode</label>
+        <input type="text" name="ZipCode" style="display:block" />
+
+
+        <label>Email</label>
+        <input type="email" name="Email" style="display:block" />
+
+
+        <label>Quote Requested</label><br />
+        <input type="radio" name="QuoteType" value="Roof"> Roof Replacement<br>
+        <input type="radio" name="QuoteType" value="Siding">Siding Replacement<br>
+        <input type="radio" name="QuoteType" value="Gutters">Gutter Replacement<br />
+        <input type="radio" name="QuoteType" value="SoffitFascia">Soffit Fascia Replacement
+        <button class="btnSubmitQuote btn btn-primary">Submit</button>
+    </form>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.btnQuote').click(ShowFastQuoteForm);
+        $('.btnSubmitQuote').click(function(e)
+        {
+            e.preventDefault();
+            SubmitRequestForQuote();
+        });
+    });
+
+    function ShowFastQuoteForm() {
+        $("#divQuoteForm").dialog({
+            modal: true,
+            title: 'Fast Quote',
+            draggable: false,
+            height: 460,
+            width: 400,
+            left: 0
+        });
+    }
+
+        function SubmitRequestForQuote()
+        {
+               $.ajax({
+                type: "POST",
+                url: "test.html",
+                data: $("#frmQuote").serialize()
+             });
+        }
+
+
+
+</script>
