@@ -36,15 +36,13 @@ namespace ContractorPortal
             }
             //throw new NotImplementedException();
 
-            string strCommandText = "CREATE TABLE requestforquote ([Id] INTEGER PRIMARY KEY, Name TEXT, Address TEXT, Note TEXT, DateTime TEXT,CONSTRAINT [sqlite_master_PK_records]);";
             System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection("Data Source = kgroofing.sqlite; Version = 3;");
+
+            string  strCommandText = "CREATE TABLE if not exists requestforquote ([Id] INTEGER PRIMARY KEY, Name TEXT, Address TEXT, Note TEXT, DateTime TEXT,CONSTRAINT [sqlite_master_PK_records]);";
             System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand(strCommandText, conn);
 
             conn.Open();
             cmd.ExecuteNonQuery();
-
-            //strCommandText = "CREATE UNIQUE INDEX [sqlite_autoindex_requestforquote_1_requestforquote] ON [requestforquote] ([Id] ASC);";
-            //cmd.ExecuteNonQuery();
 
             conn.Close();
 
