@@ -7,6 +7,17 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <style>
+        img.footerImageBBB{
+             height:90px;
+              width:80px;
+        }
+
+        img.footerImage{
+            padding:5px;
+        }
+    </style>
+
 </head>
 <body>
     <div class="navbar">
@@ -36,7 +47,12 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - KG Roofing and Construction</p>
+            <img src="~/Content/IMAGES/ABC_Logo.png" class="footerImage" />
+
+            <img src="~/Content/IMAGES/BBB.jpg" class="footerImageBBB" />
+            <img src="~/Content/IMAGES/owens-corning.png" class="footerImage" />
+
+           <p>&copy; @DateTime.Now.Year - KG Roofing and Construction</p>
         </footer>
     </div>
 
